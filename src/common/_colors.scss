@@ -1,0 +1,80 @@
+
+//******************
+// Primary Colors
+//******************
+
+$y-color-navy: #002E5D;
+$y-color-white: white;
+$y-color-royal: #0057B8;
+
+//******************
+// Accent Colors
+//******************
+
+$y-color-accent-royal: $y-color-royal;
+$y-color-accent-royal-light: #5199e1;
+$y-color-accent-royal-lightest: #AFD6FE;
+
+$y-color-accent-yellow: #FCC015;
+$y-color-accent-yellow-light: #ffDA73;
+$y-color-accent-yellow-lightest: #fff0c5;
+
+$y-color-accent-purple: #500E7C;
+$y-color-accent-purple-light: #af88ca;
+$y-color-accent-purple-lightest: #D68DE7;
+
+$y-color-accent-green: #38870c;
+$y-color-accent-green-light: #94c576;
+$y-color-accent-green-lightest: #cee0c3;
+
+$y-color-accent-orange: #d8580c;
+$y-color-accent-orange-light: #f7a883;
+$y-color-accent-orange-lightest: #ffdacf;
+
+$y-color-accent-error-red: #a60318;
+$y-color-accent-error-red-light: #f5acb6;
+$y-color-accent-error-red-lightest: #fde3e6;
+
+$y-color-accent-gray-darkest: #141414;
+$y-color-accent-gray-dark: #666666;
+$y-color-accent-gray: #8f8f8f;
+$y-color-accent-gray-light: #c5c5c5;
+$y-color-accent-gray-lightest: #e6e6e6;
+
+//******************
+// Text Colors
+//******************
+
+$y-color-text-navy: $y-color-navy;
+$y-color-text-white: $y-color-white;
+$y-color-text-dark-gray: $y-color-accent-gray-darkest;
+$y-color-text-med-gray: $y-color-accent-gray-dark;
+$y-color-text-black: black;
+
+// Accent Text Colors
+
+$y-color-accent-royal-text: $y-color-text-white;
+$y-color-accent-royal-light-text: $y-color-text-black;
+$y-color-accent-royal-lightest-text: $y-color-text-dark-gray;
+
+$y-color-accent-yellow-text: $y-color-text-dark-gray;
+$y-color-accent-yellow-light-text: $y-color-text-dark-gray;
+$y-color-accent-yellow-lightest-text: $y-color-text-dark-gray;
+
+$y-color-accent-purple-text: $y-color-text-white;
+$y-color-accent-purple-light-text: $y-color-text-dark-gray;
+$y-color-accent-purple-lightest-text: $y-color-text-dark-gray;
+
+$y-color-accent-green-text: $y-color-text-white;
+$y-color-accent-green-light-text: $y-color-text-dark-gray;
+$y-color-accent-green-lightest-text: $y-color-text-dark-gray;
+
+$y-color-accent-orange-text: #171717;
+$y-color-accent-orange-light-text: $y-color-text-dark-gray;
+$y-color-accent-orange-lightest-text: $y-color-text-dark-gray;
+
+$y-color-accent-error-red-text: $y-color-text-white;
+$y-color-accent-error-red-light-text: $y-color-text-dark-gray;
+$y-color-accent-error-red-lightest-text: $y-color-text-dark-gray;
+
+
