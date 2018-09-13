@@ -9,7 +9,7 @@
     "sass:build": "npm-run-all -p build-task:*",
     "sass:watch": "chokidar 'src/**/*.scss' -c 'npm run sass:build'",
     "build": "npm-run-all sass:build",
-    "start": "live-server --port=8080 --ignore=src,node_modules",
+    "start": "live-server --port=8081 --ignore=src,node_modules",
     "dev": "npm-run-all -p sass:* start"
   },
   "author": "",

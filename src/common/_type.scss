@@ -1,6 +1,6 @@
 @import 'colors';
 
-$y-type-family-ringside: 'Ringside Narrow A', 'Ringside Narrow B', 'Archivo Narrow', 'Arial Narrow', Arial, sans-serif;
+$y-type-family-ringside: 'HCo Ringside Narrow SSm', 'Archivo Narrow', 'Arial Narrow', Arial, sans-serif;
 $y-type-family-vitesse: 'Vitesse A', 'Vitesse B', 'Zilla Slab', 'Aleo', Georgia, serif;
 $y-type-family-gotham: 'Gotham A', 'Gotham B', 'Montserrat', 'Roboto', Verdana, Arial, sans-serif;
 $y-type-family-sentinel: 'Sentinel A', 'Sentinel B', 'Domine', 'Times New Roman', serif;
@@ -48,11 +48,11 @@ $y-type-family-source-sans: 'Source Sans Pro', Tahoma, Arial, sans-serif;
 }
 
 $y-type-logo: $y-type-family-ringside;
-$y-type-header: $y-type-family-gotham;
+$y-type-header: $y-type-family-ringside;
 $y-type-logo-old: $y-type-family-vitesse;
 
 @mixin y-type-logo($color: $y-color-text-black ) {
-  font-family: $y-type-logo-old;
+  font-family: $y-type-logo;
   color: $color;
 }
 

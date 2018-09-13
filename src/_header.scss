@@ -6,6 +6,7 @@ html, body {
 }
 
 .byu-header {
+  @include y-type-family-ringside();
   width: 100vw;
   box-sizing: border-box;
   background-color: $y-color-navy;
@@ -34,10 +35,10 @@ html, body {
   }
 }
 
-.byu-header__site-title {
+.byu-header__title {
   grid-row: 1;
   grid-column: 2;
-  margin-bottom: 11px;
+  //margin-bottom: 11px;
 
   @include y-type-logo(white);
   font-size: 22px;
@@ -47,14 +48,13 @@ html, body {
   flex-grow: 1;
 }
 
-.byu-header__site-title--subtitle {
+.byu-header__title--subtitle {
   font-size: 14px;
 }
 
 .byu-header__actions {
   grid-row: 1;
   grid-column: 3;
-  @include y-type-family-gotham();
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
@@ -69,10 +69,9 @@ html, body {
       color: $y-color-accent-royal-lightest;
     }
   }
-
 }
 
-.byu-header__user-info {
+.byu-header__user {
   grid-row: 1;
   grid-column: 4;
   display: none;
@@ -82,12 +81,11 @@ html, body {
   grid-row: 1;
   grid-column: 5;
   box-sizing: border-box;
-  width: 216px;
+  //width: 216px;
 
   font-size: 0;
 
   .byu-header__search-input {
-    @include y-type-family-gotham();
     color: $y-color-text-navy;
     display: inline-block;
     padding: 5px 10px;
@@ -139,7 +137,6 @@ html, body {
   * {
     flex: 1;
     height: 35px;
-    @include y-type-family-gotham();
     color: $y-color-navy;
     font-size: 13px;
     box-sizing: border-box;
@@ -165,18 +162,65 @@ html, body {
   }
 }
 
-.byu-header__mobile-menu-button {
+.byu-header__mobile-menu,
+.byu-header__mobile-menu-label {
   display: none;
 }
 
 @media (max-width: 1023px) {
+
+  $menu-transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  @mixin menu-expands($height, $padding-top: 0, $padding-bottom: 0) {
+    overflow-y: hidden;
+    height: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all $menu-transition;
+    display: block;
+    opacity: 0;
+  }
+
+  @mixin menu-expands-expanded($height, $padding-top: 0, $padding-bottom: 0) {
+    height: $height;
+    max-height: $height;
+    padding-top: $padding-top;
+    padding-bottom: $padding-bottom;
+    opacity: 1;
+  }
+
+  .byu-header__mobile-menu,
+  .byu-header__mobile-menu-label {
+    display: inline-block;
+  }
+
+  .byu-header__mobile-menu {
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  .byu-header__mobile-menu-label {
+    color: transparent;
+    background-color: gray;
+    width: 20px;
+    height: 20px;
+    grid-row: 1;
+    grid-column: 3;
+  }
+
+  .byu-header__mobile-menu:checked ~ .byu-header__mobile-menu-label {
+    background-color: green;
+  }
+
   .byu-header {
     grid-template-columns: auto 1fr auto;
     grid-template-rows: auto auto auto auto auto;
 
     row-gap: 0;
 
-    transition: max-height 0.5s;
+    transition: all $menu-transition;
 
     &.byu-header--mobile-expanded {
       //grid-template-rows: auto auto auto auto 0;
@@ -184,13 +228,13 @@ html, body {
     overflow-y: hidden;
   }
 
-  .byu-header__mobile-menu-button {
-    display: block;
-    grid-row: 1;
-    grid-column: 3;
-  }
+  //.byu-header__mobile-menu-button {
+  //  display: block;
+  //  grid-row: 1;
+  //  grid-column: 3;
+  //}
 
-  .byu-header__site-title {
+  .byu-header__title {
     grid-row: 1;
     grid-column: 2;
   }
@@ -200,25 +244,22 @@ html, body {
     grid-column: span 3;
 
     overflow-y: hidden;
-    max-height: 0;
-    transition: max-height 0.5s;
 
     background-color: white;
 
     * {
+      padding: 18px 50px;
+      @include menu-expands(35px, 18px, 18px);
       box-sizing: border-box;
 
       color: #002e5d;
-      padding: 18px 50px;
     }
   }
 
   .byu-header__user-info {
     grid-row: 2;
     grid-column: span 3;
-    overflow-y: hidden;
-    max-height: 0;
-    transition: max-height 0.5s;
+    @include menu-expands(35px)
   }
 
   .byu-header__search {
@@ -227,7 +268,7 @@ html, body {
     overflow-y: hidden;
     width: 100vw;
     border-bottom: 1px solid $y-color-accent-gray-light;
-    transition: max-height 0.5s;
+    //transition: all $menu-transition;
     max-height: 35px;
 
     .byu-header__search-input {
@@ -252,16 +293,32 @@ html, body {
   .byu-header__menu {
     grid-row: 3;
     grid-column: span 3;
-    overflow-y: hidden;
-    height: auto;
     border-bottom: 0;
-    max-height: 0;
-    transition: max-height 0.5s;
+    height: auto;
+    overflow-y: hidden;
   }
 
   .byu-header__menu-links {
     flex-direction: column;
     height: auto;
+  }
+
+  .byu-header__menu-links > * {
+    flex: 0;
+    @include menu-expands(35px, 8px, 8px);
+  }
+
+  .byu-header__mobile-menu:checked {
+    &~ .byu-header__menu .byu-header__menu-links > * {
+      @include menu-expands-expanded(35px, 8px, 8px);
+    }
+    &~ .byu-header__actions > * {
+      @include menu-expands-expanded(35px, 8px, 8px);
+    }
+    &~ .byu-header__user
+    {
+      @include menu-expands-expanded(35px, 8px, 8px);
+    }
   }
 
 }

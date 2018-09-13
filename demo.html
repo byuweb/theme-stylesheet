@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <title>Pure CSS Styles</title>
     <link rel="stylesheet" href="dist/index.css">
-    <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all"/>
 </head>
 <body>
 <div class="byu-header">
-    <div class="byu-header__site-title">
-        <div class="byu-header__site-title--subtitle">Ira A. Fulton College of Engineering and Technology</div>
+    <div class="byu-header__title">
+        <div class="byu-header__title--subtitle">Ira A. Fulton College of Engineering</div>
         <div>Electrical and Computer Engineering</div>
     </div>
+    <input class="byu-header__mobile-menu" id="byu-header__mobile-menu-btn" type="checkbox">
+    <label class="byu-header__mobile-menu-label" for="byu-header__mobile-menu-btn">Menu</label>
     <div class="byu-header__actions">
         <a href="#">MYBYU</a>
     </div>
-    <div class="byu-header__user-info">
+    <div class="byu-header__user">
         <a href="#" class="byu-user-info__user-name">jstudent</a>
         <a href="#" class="byu-user-info__sign-in">Sign In</a>
         <a href="#" class="byu-user-info__sign-out">Sign Out</a>
@@ -26,7 +27,6 @@
             <input type="submit" class="byu-header__search-button"/>
         </form>
     </div>
-    <div class="byu-header__mobile-menu-button">Expand</div>
     <div class="byu-header__menu">
         <div class="byu-header__menu-links">
             <a href="#dept" class="byu-header__menu-link--active">Department</a>
@@ -38,7 +38,82 @@
     </div>
 </div>
 
-<script type="module" src="src/byu-header.mjs"></script>
+<!--<script type="module" src="src/byu-header.mjs"></script>-->
+
+<!--<button class="expander">expand</button>-->
+<div class="expand">
+    <a href="">Item 1</a>
+    <a href="">Item 2</a>
+</div>
+<h1>After Expand</h1>
+
+<script type=module>
+    // const expand = document.querySelector('.expand');
+    // document.querySelector('.expander')
+    // .addEventListener('click', e => {
+    //     expand.classList.toggle('open')
+    // })
+</script>
+<style>
+    :root {
+        --menu-transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+    .expand {
+        background-color: darkslateblue;
+        padding-top: 0;
+        padding-right: 16px;
+        padding-left: 16px;
+        padding-bottom: 0;
+
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: all var(--menu-transition);
+    }
+    .expander {
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        background-color: slategrey;
+        border-radius: 0;
+        border: 1px solid darkslategray;
+    }
+    .expander:focus {
+        background-color: palevioletred;
+    }
+    .expander:active {
+        background-color: palevioletred;
+    }
+    .expand > * {
+        color: white;
+        display: block;
+        height: 0;
+        overflow: hidden;
+        padding-top: 0;
+        padding-bottom: 0;
+        transition: all var(--menu-transition);
+    }
+
+    .expander {
+        display: none;
+    }
+    label[for=mobile-expander] {
+        background-color: blue;
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+    }
+
+    .expander:checked ~ .expand {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    .expander:checked ~ .expand > * {
+        height: 20px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+</style>
 
 </body>
 </html>
